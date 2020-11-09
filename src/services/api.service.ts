@@ -18,10 +18,8 @@ const ApiService = {
 
 export default ApiService;
 
-
-// FIXME: Break these out.
 export const GalaxiesService = {
-  all () {
+  all(): Promise<any> {
     return ApiService.request('get', '/galaxies');
   },
 };
