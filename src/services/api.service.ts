@@ -18,8 +18,18 @@ const ApiService = {
 
 export default ApiService;
 
+export const PlanetsService = {
+  async getPlanetById(id: number): Promise<any> {
+    const response = await ApiService.request('get', `/planets/${id}`);
+
+    return await response.data;
+  },
+}
+
 export const GalaxiesService = {
-  all(): Promise<any> {
-    return ApiService.request('get', '/galaxies');
+  async all(): Promise<any> {
+    const response = await ApiService.request('get', '/galaxies');
+
+    return await response.data;
   },
 };

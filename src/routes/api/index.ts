@@ -6,10 +6,18 @@ export default {
     server.route([
       {
         method: "GET",
-        path: "/planet",
+        path: "/planets",
         config: {
           id: 'planet.index',
           handler: index
+        }
+      },
+      {
+        method: "GET",
+        path: "/planets/{id}",
+        config: {
+          id: 'planet.show',
+          handler: show,
         }
       },
       {
@@ -26,14 +34,6 @@ export default {
         config: {
           id: 'amenities.index',
           handler: index
-        }
-      },
-      {
-        method: "GET",
-        path: "/planet/{id}",
-        config: {
-          id: 'planet.show',
-          handler: show,
         }
       }
     ]);

@@ -1,12 +1,11 @@
 
-import {GalaxiesService} from "../services/api.service";
+import {GalaxiesService, PlanetsService} from "../services/api.service";
 
-export const index = async (request: any, h: any) => {
-  const data = await GalaxiesService.all();
-  return await data.data;
+export const index = (request: any, h: any) => {
+  return GalaxiesService.all();
 };
 
 export const show = (request: any, h: any) => {
-  return {};
+  return PlanetsService.getPlanetById(request.params.id);
 };
 

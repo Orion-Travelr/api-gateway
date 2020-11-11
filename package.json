@@ -12,7 +12,7 @@
     "build": "npm run clean && tsc -p tsconfig.json",
     "build:prod": "npm run clean && tsc -p tsconfig.release.json",
     "clean": "rimraf dist",
-    "copy:assets": "ts-node copyStaticAssets.ts",
+    "copy:assets": "node copyStaticAssets.js",
     "serve": "node dist/server.js",
     "serve:debug": "NODE_ENV=development node dist/server.js",
     "start": "npm run serve",
