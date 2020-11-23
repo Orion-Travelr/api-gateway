@@ -9,17 +9,13 @@
   },
   "main": "dist/server.js",
   "scripts": {
-    "build": "npm run clean && tsc -p tsconfig.json",
-    "build:prod": "npm run clean && tsc -p tsconfig.release.json",
+    "build:dev": "npm run clean && tsc -p tsconfig.json",
+    "build": "npm run clean && tsc -p tsconfig.release.json",
     "clean": "rimraf dist",
     "copy:assets": "node copyStaticAssets.js",
+    "serve:dev": "NODE_ENV=development nodemon --watch src --ext ts,tsx,js --exec ts-node --delay 3 src/server.ts",
     "serve": "node dist/server.js",
-    "serve:debug": "NODE_ENV=development node dist/server.js",
-    "start": "npm run serve",
-    "watch": "onchange --await-write-finish 500 -i \".src/***/*.ts*\" -- npm run build",
-    "watch:node": "nodemon dist/server.js",
-    "watch:ts": "tsc -w tsconfig.json",
-    "watch:post_process": "docker restart nj_gateway"
+    "start": "npm run serve"
   },
   "dependencies": {
     "@hapi/hapi": "20.0.1",
@@ -29,7 +25,7 @@
     "dotenv": "^8.2.0",
     "jsonapi-serializer": "^3.6.6",
     "lodash": "^4.17.20",
-    "qs": "^6.9.4",
+    "query-string": "^6.13.7",
     "winston": "^3.2.1"
   },
   "devDependencies": {
@@ -44,7 +40,6 @@
     "faker": "^4.1.0",
     "file-loader": "1.1.6",
     "mocha": "^7.2.0",
-    "onchange": "^7.1.0",
     "nodemon": "^2.0.4",
     "rimraf": "^3.0.2",
     "shelljs": "^0.8.4",

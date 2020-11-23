@@ -1,4 +1,6 @@
-import {index,show} from "../../controllers/planet";
+import {index as planetIndex,show as planetShow, query as planetQuery} from "../../controllers/planet";
+import {index as amenityIndex} from "../../controllers/amenity";
+import {index as galaxyIndex} from "../../controllers/galaxy";
 
 export default {
   name: "ApiRoutes",
@@ -9,7 +11,15 @@ export default {
         path: "/planets",
         config: {
           id: 'planet.index',
-          handler: index
+          handler: planetIndex
+        }
+      },
+      {
+        method: "GET",
+        path: "/planets/search",
+        config: {
+          id: 'planet.search',
+          handler: planetQuery
         }
       },
       {
@@ -17,7 +27,7 @@ export default {
         path: "/planets/{id}",
         config: {
           id: 'planet.show',
-          handler: show,
+          handler: planetShow,
         }
       },
       {
@@ -25,7 +35,7 @@ export default {
         path: "/galaxies",
         config: {
           id: 'galaxies.index',
-          handler: index
+          handler: galaxyIndex
         }
       },
       {
@@ -33,7 +43,7 @@ export default {
         path: "/amenities",
         config: {
           id: 'amenities.index',
-          handler: index
+          handler: amenityIndex
         }
       }
     ]);

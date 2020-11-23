@@ -17,6 +17,9 @@ import routes from './routes/api';
         additionalHeaders: ["X-Requested-With"]
       }
     },
+    router: {
+      stripTrailingSlash: true
+    },
     debug: { request: ['*'] }
   });
 
@@ -48,4 +51,6 @@ import routes from './routes/api';
 
   Logger.info(`[${config.env}] Server running on ${config.host}:${config.port}`);
 
-})().catch((error: Error) => Logger.error(`${config.env}] Server error: ${error ? error.message : 'unknown'}`));
+})().catch((error: Error) => {
+  Logger.error(`${config.env}] Server error: ${error ? error.message : 'unknown'}`)
+});

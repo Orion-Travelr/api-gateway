@@ -24,11 +24,25 @@ export const PlanetsService = {
 
     return await response.data;
   },
+
+  async getPlanetsByQuery(query: any): Promise<any> {
+    const response = await ApiService.request('get', `/planets/search?${query}`);
+
+    return await response.data;
+  },
 }
 
 export const GalaxiesService = {
   async all(): Promise<any> {
     const response = await ApiService.request('get', '/galaxies');
+
+    return await response.data;
+  },
+};
+
+export const AmenitiesService = {
+  async all(): Promise<any> {
+    const response = await ApiService.request('get', '/amenities');
 
     return await response.data;
   },
