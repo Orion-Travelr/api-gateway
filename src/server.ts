@@ -33,7 +33,7 @@ import routes from './routes/api';
     method: '*',
     path: '/{any*}',
     handler: (request:Request, h:ResponseToolkit) => {
-      return h.response({statusCode: 404, server: config.name, host: `${config.host}:${config.port}`}).code(404);
+      return h.response({statusCode: 404, version: config.version, server: config.name, host: `${config.host}:${config.port}`}).code(404);
     }
   })
 
